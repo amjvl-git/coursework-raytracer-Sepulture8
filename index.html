@@ -13,11 +13,12 @@ Your browser does not support the HTML canvas tag.
 // Simple vector in 3D with numbers for x, y and z
 class Vec3
 {
-    constructor (x, y, z)
+    constructor (x, y, z, s)
     {
         this.x = x
         this.y = y
         this.z = z
+        this.s = s
     }
 
     // Add other vector to this one and return the result
@@ -27,27 +28,59 @@ class Vec3
     }
 
     // Subtract other vector from this one and return the result
-    minus(other){}
+    minus(other){
+
+        return new Vec3(this.x - other.x, this.y - other.y, this.z - other.z)
+    }
 
     // Multiply other vector by this one and return the result
-    multiply(other){}
+    multiply(other){
+
+        return new Vec3(this.x * other.x, this.y * other.y, this.z * other.z)
+    }
 
     // Scale this vector by the number scalar and return the result
-    scale(scalar){}
+    scale(scalar){
+
+        return new Vec3(this.x * scalar.s, this.y * scaler.s, this.z * scalar.s)
+    }
     
     // Calculate the dot product of this vector with the other and return the result
-    dot(other) {}
+    dot(other) {
+
+        return new Vec3()
+    }
 
     // Calculate and return the magnitude of this vector
-    magnitude() {}
+    magnitude() {
+
+        return new Vec3(Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2)) )
+
+    }
     
     // Calculate and return the magnitude of this vector without the square root
-    magnitudeSquared() {}
+    magnitudeSquared() {
 
-    // Return a normalised version of this vector
-    normalised() {}
+        return new Vec3(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2) )
+    }
+
+    normalised() { 
+
+    const magnitude = Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2))
+    
+    const normalisation = 1/(magnitude)
+
+    return new Vec3(normalisation * this.x, normalisation * this.y, normalisation * this.z)
 }
 
+    }
+
+    const x = new Vec3(1);
+    const y = new Vec3(2);
+    const z = new Vec3(3);
+    const scalar = new Vec3(10);
+
+const mySelf = new Person("Johnny", "Rally", 22, "green");
 // A sphere in 3D space. Has centre, radius and colour all of which are Vec3s
 class Sphere
 {
